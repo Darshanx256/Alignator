@@ -1,0 +1,14 @@
+{
+  "arabic": {
+    "double_oomph_prefix": "و",
+    "elastic_end": {
+      "diphthongs": ["ـَي", "ـَو", "ـَيْ", "ـَوْ"],
+      "vowels": ["ا", "و", "ي", "َ", "ِ", "ُ", "ـَا", "ـِي", "ـُو"],
+      "sonorants": ["ر", "ل", "م", "ن"],
+      "special_sonorant_endings": ["ً", "ٍ", "ٌ", "ن", "م", "ل", "ر"]
+    },
+    "syllables": {
+      "vowels": "اويَُِ"
+    }
+  }
+}

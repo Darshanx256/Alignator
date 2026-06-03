@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = [
+    "core/rust",
+    "formatters/rust",
+    "bridges/wasm",
+    "bridges/uniffi"
+]
+# We will add bridges/uniffi if needed, or implement it inside the core/rust or as a separate member.

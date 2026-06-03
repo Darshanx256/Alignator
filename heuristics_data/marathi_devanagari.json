@@ -1,0 +1,14 @@
+{
+  "marathi_devanagari": {
+    "double_oomph_prefix": "ऊ",
+    "elastic_end": {
+      "diphthongs": ["ऐ", "औ", "ै", "ौ"],
+      "vowels": ["अ", "आ", "इ", "ई", "उ", "ऊ", "ए", "ओ", "ा", "ि", "ी", "ु", "ू", "े", "ो", "ृ"],
+      "sonorants": ["र", "ल", "म", "न", "ण"],
+      "special_sonorant_endings": ["ं", "ँ", "न", "म", "ण"]
+    },
+    "syllables": {
+      "vowels": "अआइईउऊऋएऐओऔािीुूृेैोौॲॅऑ"
+    }
+  }
+}

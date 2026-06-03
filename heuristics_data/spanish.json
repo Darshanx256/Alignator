@@ -1,0 +1,14 @@
+{
+  "spanish": {
+    "double_oomph_prefix": "oo",
+    "elastic_end": {
+      "diphthongs": ["ai", "au", "ei", "eu", "oi", "ou", "ia", "ie", "io", "iu", "ua", "ue", "ui", "uo", "ay", "ey", "oy"],
+      "vowels": ["a", "e", "i", "o", "u"],
+      "sonorants": ["r", "l", "m", "n", "ñ"],
+      "special_sonorant_endings": ["n", "m", "r", "l"]
+    },
+    "syllables": {
+      "vowels": "aeiouáéíóúüAEIOUÁÉÍÓÚÜ"
+    }
+  }
+}

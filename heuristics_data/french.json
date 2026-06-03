@@ -1,0 +1,14 @@
+{
+  "french": {
+    "double_oomph_prefix": "ou",
+    "elastic_end": {
+      "diphthongs": ["oi", "oui", "ail", "eil", "euil", "ouil", "ill", "ui"],
+      "vowels": ["a", "e", "é", "è", "ê", "i", "o", "ô", "u", "ù", "û", "y", "œ", "æ"],
+      "sonorants": ["r", "l", "m", "n"],
+      "special_sonorant_endings": ["an", "en", "in", "on", "un", "ain", "ein", "oin", "am", "em", "im", "om", "um"]
+    },
+    "syllables": {
+      "vowels": "aeéèêiîoôuùûyœæAEÉÈÊIÎOÔUÙÛY"
+    }
+  }
+}

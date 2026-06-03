@@ -1,0 +1,116 @@
+{
+  "japanese": {
+
+    // Maps to English "oo" (/uː/). Japanese /u/ is technically an unrounded
+    // back-central vowel but is the closest phonetic equivalent. Could argue
+    // for "あ" (most open/powerful vowel in enka/ballad singing) instead.
+    "double_oomph_prefix": "う",
+
+    "elastic_end": {
+
+      // Japanese has NO true diphthongs, all vowel sequences (ai, ou, etc.)
+      // are separate morae, each gets its own musical beat.
+      // Instead, these are YŌON (拗音) small kana — the second character in
+      // glide sequences like きゃ (kya), しゅ (shu), りょ (ryo).
+      // A small kana does NOT start a new mora; it fuses with the preceding
+      // consonant kana into ONE mora. Treat them like a diphthong's off-glide.
+      // Rows: small ya/yu/yo (most common), small vowels (loanwords), rare wa.
+      "diphthongs": [
+        "ゃ", "ゅ", "ょ", "ゎ",        // hiragana small ya, yu, yo, wa
+        "ぁ", "ぃ", "ぅ", "ぇ", "ぉ",  // hiragana small a, i, u, e, o (loanwords)
+        "ャ", "ュ", "ョ", "ヮ",        // katakana small ya, yu, yo, wa
+        "ァ", "ィ", "ゥ", "ェ", "ォ"   // katakana small a, i, u, e, o (loanwords)
+      ],
+
+      // Japanese has exactly 5 vowel phonemes: a, i, u, e, o.
+      // No vowel length distinction in the phoneme inventory itself —
+      // length is handled by spelling (double kana) or the ー mark.
+      // ー (chōonpu) is included here because it extends the preceding
+      // vowel elastically — in music it adds one full beat to that vowel.
+      "vowels": [
+        "あ", "い", "う", "え", "お",  // hiragana vowels
+        "ア", "イ", "ウ", "エ", "オ",  // katakana vowels
+        "ー"                            // long vowel mark (katakana/expressive hiragana)
+      ],
+
+      // ん/ン (moraic nasal /N/) is the ONLY consonant that can appear
+      // word-finally without a following vowel in Japanese. It is the
+      // entire "sonorant endings" category for this language.
+      // Its exact phonetic realization is context-dependent:
+      //   [m] before b/p   →  三番 (sa-m-ban)
+      //   [n] before t/d/n →  新聞 (shin-bun)
+      //   [ŋ] before k/g   →  日本語 (niho-ng-o)
+      //   [ɴ̃] word-final / before vowels → nasalized vowel quality
+      // In singing, all allophone forms can be held/sustained.
+      "sonorants": ["ん", "ン"],
+
+      // Same as sonorants — ん/ン is the only consonant-final mora in Japanese,
+      // directly analogous to English "ng" in this field.
+      "special_sonorant_endings": ["ん", "ン"]
+    },
+
+    // ── JAPANESE-SPECIFIC FIELD ──────────────────────────────────────────────
+    // Japanese has three "special morae" with no direct Western equivalent.
+    // Each occupies exactly one musical beat, just like any CV mora (ka, su, etc).
+    // This field does not exist in other language configs and must be handled
+    // separately in your heuristic logic.
+    "special_morae": {
+
+      // /N/ mora — the moraic nasal. Gets its own note in music.
+      // Singers sustain the nasal resonance for the full beat duration.
+      "moraic_nasal": ["ん", "ン"],
+
+      // /Q/ mora — sokuon (促音), the "small tsu". NOT a vowel, NOT silent.
+      // It's a held consonant closure — one full silent/percussive beat
+      // before the following consonant fires. In expressive J-pop/anime,
+      // creates dramatic punch (e.g. あっ!). In sheet music, often a rest.
+      // っ/ッ NEVER appears word-finally (except exclamations like あっ).
+      "moraic_obstruent_sokuon": ["っ", "ッ"],
+
+      // /R/ mora — chōonpu (長音符). Extends the preceding vowel by one mora.
+      // The singer holds the same vowel sound for an additional beat.
+      // Used in katakana (ラーメン = ra-a-me-n) and expressive hiragana.
+      "long_vowel_mark": ["ー"],
+
+      // Hiragana spellings of long vowels — these are TWO morae but
+      // pronounce as a single extended vowel sound:
+      //   えい → long ē (e.g. 先生 sensei, 英語 eigo)
+      //   おう → long ō (e.g. 東京 tōkyō, 学校 gakkō)
+      //   おお → long ō (e.g. 大きい ōkii)
+      //   ええ → long ē (e.g. ええ ee "yes")
+      //   ああ, いい, うう → straightforward long a, i, u
+      // Critical for lyrics processing — the same long sound can be spelled
+      // two different ways (おう vs おお, えい vs ええ).
+      "long_vowel_hiragana_pairs": ["ああ", "いい", "うう", "えい", "おう", "おお", "ええ"]
+    },
+
+    "syllables": {
+
+      // Pure vowel kana only (V-type morae, not CV-type).
+      // For mora counting: every kana character EXCEPT small kana and ー
+      // represents exactly one mora = one musical beat.
+      // Japanese is mora-timed — each mora gets equal duration regardless
+      // of whether it's a vowel, CV syllable, ん, っ, or ー.
+      "vowels": "あいうえおアイウエオ",
+
+      // These characters do NOT start a new mora. When seen after a
+      // consonant kana, they fuse with it into a single yōon mora.
+      // Your beat counter must NOT increment when encountering these.
+      "non_starter_kana": "ぁぃぅぇぉゃゅょゎァィゥェォャュョヮ",
+
+      // ー does NOT start a new mora either — it extends the preceding
+      // vowel's duration by one beat. Your counter should still increment
+      // (it occupies a beat) but it doesn't introduce a new vowel.
+      "mora_extender": "ー"
+    },
+
+    // ── IMPLEMENTATION WARNING ───────────────────────────────────────────────
+    // Lyrics contain significant amounts of KANJI (漢字). Kanji have no
+    // phonetic information at the character level — a single kanji can map
+    // to 1–4+ morae depending on its reading. You MUST convert kanji to
+    // kana (furigana injection) before this heuristic can run.
+    // Recommended tools: MeCab + UniDic, Sudachi, kuromoji (Java/JS),
+    // or fugana/ruby annotations if present in the source lyrics data.
+    "_kanji_note": "Preprocess kanji → kana before applying this config. Use MeCab/Sudachi/kuromoji."
+  }
+}

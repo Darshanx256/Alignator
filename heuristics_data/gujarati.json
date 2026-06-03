@@ -1,0 +1,14 @@
+{
+  "gujarati": {
+    "double_oomph_prefix": "ઊ",
+    "elastic_end": {
+      "diphthongs": ["ઐ", "ઔ", "ૈ", "ૌ"],
+      "vowels": ["અ", "આ", "ઇ", "ઈ", "ઉ", "ઊ", "એ", "ઓ", "ા", "િ", "ી", "ુ", "ૂ", "ે", "ો"],
+      "sonorants": ["ર", "લ", "મ", "ન", "ણ"],
+      "special_sonorant_endings": ["ં", "ઁ", "ન", "મ", "ણ"]
+    },
+    "syllables": {
+      "vowels": "અઆઇઈઉઊઋએઐઓઔાિીુૂૃેૈોૌ"
+    }
+  }
+}

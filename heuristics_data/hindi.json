@@ -1,0 +1,14 @@
+{
+  "hindi_devanagari": {
+    "double_oomph_prefix": "ऊ",
+    "elastic_end": {
+      "diphthongs": ["ऐ", "औ", "ै", "ौ"],
+      "vowels": ["अ", "आ", "इ", "ई", "उ", "ऊ", "ए", "ओ", "ा", "ि", "ी", "ु", "ू", "े", "ो", "ृ"],
+      "sonorants": ["र", "ल", "म", "न"],
+      "special_sonorant_endings": ["ं", "ँ", "न", "म"]
+    },
+    "syllables": {
+      "vowels": "अआइईउऊऋएऐओऔािीुूृेैोौॅॉ"
+    }
+  }
+}

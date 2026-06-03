@@ -1,0 +1,14 @@
+{
+  "punjabi_gurmukhi": {
+    "double_oomph_prefix": "ਊ",
+    "elastic_end": {
+      "diphthongs": ["ੈ", "ੌ"],
+      "vowels": ["ਅ", "ਆ", "ਇ", "ਈ", "ਉ", "ਊ", "ਏ", "ਓ", "ਾ", "ਿ", "ੀ", "ੁ", "ੂ", "ੇ", "ੋ"],
+      "sonorants": ["ਰ", "ਲ", "ਮ", "ਨ", "ਣ"],
+      "special_sonorant_endings": ["ਂ", "ੰ", "ਨ", "ਮ", "ਣ"]
+    },
+    "syllables": {
+      "vowels": "ਅਆਇਈਉਊਏਐਓਔਾਿੀੁੂੇੈੋੌ"
+    }
+  }
+}

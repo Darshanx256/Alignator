@@ -1,0 +1,14 @@
+{
+  "portuguese": {
+    "double_oomph_prefix": "oo",
+    "elastic_end": {
+      "diphthongs": ["ai", "au", "ei", "eu", "oi", "ou", "iu", "ui", "ão", "ãe", "õe", "ẽi", "ãi"],
+      "vowels": ["a", "e", "é", "ê", "i", "o", "ó", "ô", "u", "ã", "õ"],
+      "sonorants": ["r", "l", "m", "n", "lh", "nh"],
+      "special_sonorant_endings": ["m", "n", "r", "l", "ão", "ã", "õ", "ns", "nh"]
+    },
+    "syllables": {
+      "vowels": "aeéêiîoóôuúãõàâAEÉÊIÎOÓÔUÚÃÕÀÂ"
+    }
+  }
+}

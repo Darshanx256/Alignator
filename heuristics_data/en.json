@@ -1,0 +1,12 @@
+{
+  "double_oomph_prefix": "oo",
+  "elastic_end": {
+    "diphthongs": ["ee", "oo", "aa", "ou", "ow", "ay", "ey", "oy", "ea", "ai", "ie", "ue", "ui", "uy"],
+    "vowels": ["a", "e", "i", "o", "u", "y"],
+    "sonorants": ["r", "l", "m", "n"],
+    "special_sonorant_endings": ["ng"]
+  },
+  "syllables": {
+    "vowels": "aeiouyAEIOUY"
+  }
+}

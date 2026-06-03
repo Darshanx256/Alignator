@@ -1,0 +1,125 @@
+{
+  "korean": {
+
+    // Maps to English "oo" (/uː/). Korean /u/ (우) is the closest phonetic
+    // equivalent, just as Japanese uses う. For K-pop, held 우 ("uuu~") runs
+    // are the canonical emphatic sustained sound in ballads and adlibs.
+    "double_oomph_prefix": "우",
+
+    "elastic_end": {
+
+      // Korean has GENUINE diphthongs — unlike Japanese's reinterpreted yōon.
+      // Grouped by glide type:
+      //   iotized (y-glide onset): ㅑ ㅕ ㅛ ㅠ ㅒ ㅖ
+      //   labial/back (w/ɰ-glide onset): ㅘ ㅙ ㅚ ㅝ ㅞ ㅟ ㅢ
+      //
+      // Note: ㅐ(ae) and ㅔ(e) are historically diphthongs but are MODERN
+      // MONOPHTHONGS in Seoul Korean — they've fully merged into [e].
+      // They belong in `vowels`, not here.
+      //
+      // ㅢ is unique: an off-glide [ɯi] that has no parallel in other
+      // languages — the only diphthong in Korean that glides OFF rather than on.
+      // Its pronunciation varies by position: [ɰi] initially, [i] after consonants,
+      // [e] in the particle 의. For music heuristics treat it as a diphthong.
+      "diphthongs": [
+        "ㅑ", "ㅕ", "ㅛ", "ㅠ",   // iotized: ya, yeo, yo, yu
+        "ㅒ", "ㅖ",               // iotized + fronted: yae, ye
+        "ㅘ", "ㅙ", "ㅚ",         // w-glide from ㅗ: wa, wae, oe (→ we in modern speech)
+        "ㅝ", "ㅞ", "ㅟ",         // w-glide from ㅜ: weo, we, wi
+        "ㅢ"                      // unique back off-glide: ui/eui [ɯi]
+      ],
+
+      // Pure monophthong vowels — 6 phonemically distinct + 2 merged modern ones.
+      //   ㅏ(a), ㅓ(eo), ㅗ(o), ㅜ(u), ㅡ(eu), ㅣ(i): the 6 core vowels
+      //   ㅐ(ae), ㅔ(e): historically diphthongs, phonemically merged as [e]
+      //     in modern Seoul Korean — included here as stretchable word-final vowels.
+      // Note: ㅡ (eu) is a back unrounded vowel unique to Korean with no
+      // equivalent in English, Hindi, or any of the previously configured languages.
+      "vowels": ["ㅏ", "ㅓ", "ㅗ", "ㅜ", "ㅡ", "ㅣ", "ㅐ", "ㅔ"],
+
+      // The 4 sonorant consonants: ㄴ(n), ㄹ(l/r), ㅁ(m) mirror English n/l/m.
+      // In singing, these batchim can be held and resonated.
+      // ㄹ is an alveolar flap [ɾ] between vowels and [l] in final position —
+      // the final [l] form is what appears here, which IS sustainable in music.
+      "sonorants": ["ㄴ", "ㄹ", "ㅁ"],
+
+      // ㅇ in FINAL position = velar nasal [ŋ] — directly parallel to English "ng".
+      // ⚠️ ㅇ in INITIAL position = null/silent placeholder (see syllables.null_onset).
+      // The same character has two completely different roles depending on position.
+      "special_sonorant_endings": ["ㅇ"]
+    },
+
+    // ── KOREAN-SPECIFIC FIELD ────────────────────────────────────────────────
+    // Analogous to Japanese's special_morae, but the mechanic is 받침 (batchim):
+    // the final consonant that sits at the bottom of a Hangul syllable block.
+    // Unlike Japanese's special morae (which are their own timing units), batchim
+    // is PART of the syllable block — it closes the syllable rather than extending it.
+    //
+    // The 7 representative batchim sounds (regardless of how many consonants are written):
+    //   [k̚]  [n]  [t̚]  [l]  [m]  [p̚]  [ŋ]
+    // Stop batchim (k, t, p) are UNRELEASED — mouth closes but no air escapes.
+    // This is analogous to Japanese っ in musical effect: abrupt, percussive syllable endings.
+    "special_batchim": {
+
+      // Can be held/resonated in singing — analogous to Japanese ん (moraic nasal).
+      // In K-pop ballads, singers often sustain these across a note.
+      //   ㄴ → [n], ㄹ → [l], ㅁ → [m], ㅇ → [ŋ]
+      "sonorant_batchim": ["ㄴ", "ㄹ", "ㅁ", "ㅇ"],
+
+      // Unreleased stops — abrupt, closed syllable endings. Analogous to Japanese っ.
+      // Many written consonants reduce to just these 3 sounds in final position:
+      //   → [k̚]: ㄱ ㄲ ㅋ (and cluster: ㄳ ㄺ)
+      //   → [t̚]: ㄷ ㅌ ㅅ ㅆ ㅈ ㅊ ㅎ (and cluster: ㄵ ㄶ)
+      //   → [p̚]: ㅂ ㅍ (and cluster: ㄼ ㄿ ㅄ)
+      // In music, stop batchim creates a "choked" syllable — the vowel is cut short.
+      // K-pop singers often extend the VOWEL before a stop batchim for musical effect,
+      // landing on the unreleased stop only at the end of the held note.
+      "stop_batchim": ["ㄱ", "ㄷ", "ㅂ"],
+
+      // 겹받침 (cluster batchim) — 11 double-consonant final clusters.
+      // Always simplified to ONE of the 7 representative sounds in pronunciation.
+      // Simplification rules (first or second consonant pronounced) vary per cluster:
+      //   ㄳ→ㄱ  ㄵ→ㄴ  ㄶ→ㄴ  ㄺ→ㄱ  ㄻ→ㅁ
+      //   ㄼ→ㄹ  ㄽ→ㄹ  ㄾ→ㄹ  ㄿ→ㅂ  ㅀ→ㄹ  ㅄ→ㅂ
+      // Exception: 맑다/묽다/밟다 — irregular simplification.
+      // When followed by a vowel-initial syllable (ㅇ placeholder), the second
+      // consonant "links" to the next syllable instead of being dropped.
+      "cluster_batchim": ["ㄳ", "ㄵ", "ㄶ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅄ"]
+    },
+
+    "syllables": {
+
+      // All 21 Korean vowel jamo (individual vowel letters).
+      // In practice, Korean text is composed syllable blocks (가 나 다...), not
+      // individual jamo. But for vowel detection within a block, these are the
+      // characters to look for as the 중성 (vowel nucleus) of each block.
+      "vowels": "ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ",
+
+      // ── KOREAN-SPECIFIC: null onset ─────────────────────────────────────
+      // ㅇ (ieung) is the only consonant that is SILENT in initial position.
+      // When a syllable starts with a vowel sound, ㅇ is written as a placeholder:
+      //   아(a), 이(i), 우(u), 에(e), 오(o) — all start with silent ㅇ
+      // In final position the SAME character becomes [ŋ] (as in 사랑 sarang).
+      // Your syllable heuristic must NOT count initial ㅇ as a consonant onset.
+      // Analogous to Japanese non_starter_kana in spirit, but different mechanic —
+      // here it's positional ambiguity of a single character, not a separate character class.
+      "null_onset": "ㅇ",
+
+      // Korean has NO standard single-character long vowel mark (unlike Japanese ー).
+      // Vowel length was historically phonemic in Korean but is NO LONGER
+      // contrastive in modern Seoul Korean — length distinction has collapsed.
+      // In informal writing / K-pop fan texts, ~ (tilde) is used for prolongation,
+      // or the vowel character is repeated (아아아 for a long 아).
+      // Neither is standardized. Your heuristic should not rely on either form.
+      "mora_extender": null
+    },
+
+    // ── IMPLEMENTATION NOTE ──────────────────────────────────────────────────
+    // Hanja (Chinese characters / 漢字) appear VERY rarely in modern Korean lyrics
+    // — unlike Japanese where kanji is ubiquitous. Modern K-pop uses Hangul almost
+    // exclusively. When Hanja does appear (classical poetry, formal text), you'll
+    // need a Hanja→Hangul conversion step, but this is uncommon enough that it
+    // can be treated as an edge case rather than a preprocessing requirement.
+    "_hanja_note": "Hanja rare in K-pop lyrics. Hangul-only processing covers ~99% of cases."
+  }
+}

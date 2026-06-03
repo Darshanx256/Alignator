@@ -1,0 +1,13 @@
+# Rust build artifacts
+/target/
+
+# Python compiled files and cache
+/__pycache__/
+/*.pyc
+
+# Auto-generated UniFFI files and native libraries
+/alignator_uniffi.py
+/libalignator_uniffi.so
+
+# CLI lyrics viewer (not part of core library)
+/cli.py

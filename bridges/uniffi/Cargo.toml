@@ -1,0 +1,18 @@
+[package]
+name = "alignator-uniffi"
+version = "0.1.0"
+edition = "2021"
+authors = ["DeepMind Team", "Darshan"]
+description = "UniFFI mobile bindings bridge for Alignator"
+
+[[bin]]
+name = "uniffi-bindgen"
+path = "src/bin/uniffi-bindgen.rs"
+
+[lib]
+crate-type = ["lib", "cdylib"]
+
+[dependencies]
+alignator = { path = "../../core/rust" }
+alignator-formatters = { path = "../../formatters/rust" }
+uniffi = { version = "0.25", features = ["cli"] }

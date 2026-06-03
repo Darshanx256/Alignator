@@ -1,0 +1,14 @@
+{
+  "bengali": {
+    "double_oomph_prefix": "ঊ",
+    "elastic_end": {
+      "diphthongs": ["ঐ", "ঔ", "ৈ", "ৌ"],
+      "vowels": ["অ", "আ", "ই", "ঈ", "উ", "ঊ", "এ", "ও", "া", "ি", "ী", "ু", "ূ", "ে", "ো"],
+      "sonorants": ["র", "ল", "ম", "ন"],
+      "special_sonorant_endings": ["ং", "ঁ", "ন", "ম", "ৎ"]
+    },
+    "syllables": {
+      "vowels": "অআইঈউঊএঐওঔািীুূেৈোৌ"
+    }
+  }
+}
